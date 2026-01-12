@@ -1,77 +1,115 @@
-Final High School (12th Grade) Engineering Project
 **Overview**
 
-This repository documents the design and implementation of a fully custom handheld game console developed as a final high school project.
-All hardware integration, firmware, and game logic were designed and programmed from scratch by me.
+This repository contains my final high school (12th grade) project: the design and development of a fully custom handheld game console.
+The entire system — hardware integration, firmware, and game logic — was designed and implemented from scratch by me.
 
-The project focuses on low-level system design, embedded programming, and the interaction between hardware and software under strict memory and performance constraints.
+The project focuses on embedded systems, low-level programming, and the interaction between hardware and software under strict memory and performance constraints.
 
 **System Architecture**
 
 The console is built around an Arduino UNO R3 (ATmega328P) acting as the main microcontroller.
-It interfaces with:
 
-a 128×64 monochrome OLED display over I²C
+**Hardware Components**
 
-six physical buttons using internal pull-up resistors
+Arduino UNO R3
 
-a passive piezo buzzer for audio feedback
+128×64 monochrome OLED display (I²C)
 
-an external USB power source for portable operation
+6 physical push buttons (internal pull-up configuration)
 
-All components were first prototyped on a breadboard, then transferred to a soldered perfboard for stability.
+Passive piezo buzzer for audio feedback
 
-**Software Design**
+External USB power supply (power bank)
 
-All software was developed in Arduino IDE (C/C++) without external game engines.
+The system was first prototyped on a breadboard and later soldered onto a perfboard to obtain a stable and portable final version.
 
-Key technical aspects include:
+**Firmware**
 
-Direct pixel-based rendering using Adafruit_GFX and Adafruit_SSD1306
+The firmware is written in Arduino (C/C++) and developed using Arduino IDE.
 
-Custom 8×8 bitmaps stored in PROGMEM to minimize SRAM usage
+**Location:**
 
-Frame-based rendering loop with explicit screen refresh control
+/firmware
+  └── console.ino
 
-Button input handling with software debouncing
+**Software Features**
+
+Low-level pixel rendering using Adafruit_GFX and Adafruit_SSD1306
+
+Manual frame-based rendering loop
+
+Custom 8×8 sprites stored in PROGMEM to reduce SRAM usage
+
+Button input handling using internal pull-up resistors
+
+Software debouncing for reliable input
 
 Collision detection and game state management
 
-Simple audio feedback generated via PWM (tone())
+Audio feedback generated using PWM (tone())
+
+The code is designed to run within the memory and performance limits of the ATmega328P microcontroller.
 
 **Games Implemented**
 
 F1 Snake
 
-A Snake-inspired game with a Formula 1 theme.
-The player controls a car that grows by collecting parts, with direction-based sprite rendering, trail effects, and optional collision rules.
+A Snake-inspired 2D game with a Formula 1 theme.
 
-2D Tennis
+Direction-based sprite rendering
 
-A simplified Pong-style game featuring:
+Trail effect to simulate motion
+
+Collectible parts that extend the player
+
+Optional collision rules
+
+**2D Tennis**
+
+A simplified Pong-style tennis game.
 
 Player-controlled paddle
 
-Basic AI opponent
+AI-controlled opponent
 
-Multiple difficulty levels affecting ball speed and AI reaction time
+Multiple difficulty levels
 
-Real-time score display (HUD)
+Real-time HUD for score display
 
 **Mechanical Design**
 
 The console enclosure was designed in 3D and printed using a school 3D printer.
-Several design iterations were required to ensure proper component fit, button alignment, and screen visibility.
+Several iterations were required to adjust component placement, button alignment, and internal spacing.
 
 **Project Goals**
 
-Understand the internal architecture of a simple 2D game console
+Learn the fundamentals of embedded systems and microcontrollers
 
-Learn embedded systems programming with limited memory and processing power
+Understand basic console architecture
 
-Integrate hardware and software into a fully functional system
+Develop low-level game logic without external engines
 
-Demonstrate autonomous learning and problem-solving in a technical project
+Integrate hardware and software into a functional system
+
+Demonstrate autonomous learning and problem-solving skills
+
+**How to Run**
+
+Open console.ino in Arduino IDE
+
+Install required libraries:
+
+Adafruit_GFX
+
+Adafruit_SSD1306
+
+Select Arduino UNO as the target board
+
+Upload the firmware to the board
+
+Power the console via USB
+
+
 
 **Author**
 
