@@ -40,6 +40,7 @@ Collision detection and game state management
 Simple audio feedback generated via PWM (tone())
 
 **Games Implemented**
+
 F1 Snake
 
 A Snake-inspired game with a Formula 1 theme.
